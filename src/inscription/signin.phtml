@@ -1,0 +1,37 @@
+<div class="login-wrapper">
+    <div class="login-container">
+        <div class="login-icon">
+            <i class="bi bi-person-plus"></i>
+        </div>
+
+        <h1 class="login-title">Inscription</h1>
+        <p class="login-subtitle">Système de Gestion de Soutenance</p>
+
+        <?php if (isset($error)) : ?>
+            <div class="alert alert-danger" role="alert">
+                <i class="bi bi-exclamation-triangle-fill"></i> <?= $error ?>
+            </div>
+        <?php endif ?>
+
+        <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+            <div>
+                <label class="form-label" for="login">Nom d'utilisateur :</label>
+                <input class="form-control" type="text" id="login" name="login" required placeholder="Entrez votre nom d'utilisateur">
+            </div>
+            <div>
+                <label class="form-label" for="mot_de_passe">Mot de passe :</label>
+                <input class="form-control" type="password" id="mot_de_passe" name="mot_de_passe" required placeholder="Entrez votre mot de passe">
+            </div>
+            <div>
+                <label class="form-label" for="confirm_mot_de_passe">Confirmez le mot de passe :</label>
+                <input class="form-control" type="password" id="confirm_mot_de_passe" name="confirm_mot_de_passe" required placeholder="Confirmez votre mot de passe">
+            </div>
+
+            <p class="login-subtitle">Déjà un compte ? <a href="../authentication/login.php" class="login-subtitle"> Connectez-vous</a></p>
+
+            <button type="submit" class="btn-login mt-3" name="submit">
+                <i class="bi bi-door-open"></i> S'inscrire
+            </button>
+        </form>
+    </div>
+</div>

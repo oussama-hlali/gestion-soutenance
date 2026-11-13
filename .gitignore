@@ -1,0 +1,28 @@
+# Archives / sauvegardes
+*.zip
+*.rar
+*.7z
+
+# Configuration locale
+.env
+.env.*
+src/utils/dbconfig.local.php
+
+# Dépendances
+vendor/
+node_modules/
+
+# IDE / éditeurs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Système
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Logs et fichiers temporaires
+*.log
+*.tmp

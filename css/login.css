@@ -1,0 +1,179 @@
+@import url("./main.css");
+
+/* Login Page Specific Styles */
+.login-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--dark-primary-color) 0%, var(--primary-color) 50%, var(--light-primary-color) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-page::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(58, 158, 253, 0.1) 0%, transparent 70%);
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+.login-container {
+  width: 100%;
+  max-width: 420px;
+  position: relative;
+  z-index: 2;
+}
+
+.login-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
+}
+
+.form-signin {
+  width: 100%;
+}
+
+.form-signin .logo-container {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.form-signin .logo {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 1rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.form-signin .form-floating {
+  margin-bottom: 1rem;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 3;
+}
+
+.form-signin input[type="text"],
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border: 2px solid transparent;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 1.5rem;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border: 2px solid transparent;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.form-signin input:focus {
+  border-color: var(--secondary-color);
+  background: white;
+}
+
+.form-signin .form-control {
+  padding: 1rem 0.75rem;
+  height: calc(3.5rem + 2px);
+  font-size: 1rem;
+}
+
+.form-signin .form-floating>label {
+  padding: 1rem 0.75rem;
+  color: #6c757d;
+}
+
+.form-signin .form-check {
+  margin-bottom: 1.5rem;
+}
+
+.form-signin .form-check-input:checked {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+
+.form-signin .form-check-label {
+  color: #495057;
+  font-weight: 500;
+}
+
+.login-title {
+  color: var(--primary-color) !important;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.login-subtitle {
+  color: #6c757d;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+
+.login-footer {
+  text-align: center;
+  margin-top: 2rem;
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+/* Error message styling */
+.login-error {
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  75% { transform: translateX(10px); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .login-card {
+    padding: 2rem 1.5rem;
+    margin: 10px;
+  }
+  
+  .login-page {
+    padding: 10px;
+  }
+  
+  .form-signin .logo {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+}

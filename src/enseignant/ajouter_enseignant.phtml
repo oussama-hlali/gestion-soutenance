@@ -1,0 +1,48 @@
+<div class="page-header">
+    <h1 class="page-title">Ajouter un enseignant</h1>
+    <p class="page-subtitle">Remplissez les informations de l'enseignant</p>
+</div>
+
+<?php if (isset($success_message)): ?>
+    <div class='alert alert-success'><?php echo $success_message; ?></div>
+<?php endif; ?>
+
+<?php if (isset($error_message)): ?>
+    <div class='alert alert-danger'><?php echo $error_message; ?></div>
+<?php endif; ?>
+
+<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+    <div class="form-grid">
+        <div>
+            <label class="form-label" for="Matricule">
+                <i class="bi bi-person-badge me-2"></i>Matricule
+            </label>
+            <input class="form-control" type="number" name="Matricule" id="Matricule" 
+                   placeholder="Entrez le matricule" required />
+        </div>
+        
+        <div>
+            <label class="form-label" for="nom_Ens">
+                <i class="bi bi-person me-2"></i>Nom de l'enseignant
+            </label>
+            <input class="form-control" type="text" name="nom_Ens" id="nom_Ens" 
+                   placeholder="Entrez le nom" required />
+        </div>
+        
+        <div>
+            <label class="form-label" for="prenom_Ens">
+                <i class="bi bi-person me-2"></i>Prénom de l'enseignant
+            </label>
+            <input class="form-control" type="text" name="prenom_Ens" id="prenom_Ens" 
+                   placeholder="Entrez le prénom" required />
+        </div>
+        
+        <div>
+           
+        </div>
+    </div>
+    
+    <button type="submit" class="btn-submit">
+        <i class="bi bi-person-plus me-2"></i> Créer l'enseignant
+    </button>
+</form>

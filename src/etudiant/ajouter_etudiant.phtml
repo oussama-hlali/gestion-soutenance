@@ -1,0 +1,57 @@
+<div class="page-header">
+    <h1 class="page-title">Ajouter un étudiant</h1>
+    <p class="page-subtitle">Remplissez les informations de l'étudiant</p>
+</div>
+
+<?php if (!empty($success_message)): ?>
+    <div class="alert alert-success" role="alert">
+        <?= htmlspecialchars($success_message) ?>
+    </div>
+<?php endif; ?>
+
+<?php if (!empty($error_message)): ?>
+    <div class="alert alert-danger" role="alert">
+        <?= htmlspecialchars($error_message) ?>
+    </div>
+<?php endif; ?>
+
+
+<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+    <div class="form-grid">
+        <div>
+            <label class="form-label" for="NCE">
+                <i class="bi bi-person-badge me-2"></i>NCE
+            </label>
+            <input class="form-control" type="number" name="NCE" id="NCE" 
+                   placeholder="Entrez le NCE" required />
+        </div>
+        
+        <div>
+            <label class="form-label" for="nom">
+                <i class="bi bi-person me-2"></i>Nom
+            </label>
+            <input class="form-control" type="text" name="nom" id="nom" 
+                   placeholder="Entrez le nom" required />
+        </div>
+        
+        <div>
+            <label class="form-label" for="prenom">
+                <i class="bi bi-person me-2"></i>Prénom
+            </label>
+            <input class="form-control" type="text" name="prenom" id="prenom" 
+                   placeholder="Entrez le prénom" required />
+        </div>
+        
+        <div>
+            <label class="form-label" for="classe">
+                <i class="bi bi-building me-2"></i>Classe
+            </label>
+            <input class="form-control" type="text" name="classe" id="classe" 
+                   placeholder="Entrez la classe" required />
+        </div>
+    </div>
+    
+    <button type="submit" class="btn btn-primary mt-3">
+        <i class="bi bi-person-plus-fill me-2"></i> Créer l'étudiant
+    </button>
+</form>

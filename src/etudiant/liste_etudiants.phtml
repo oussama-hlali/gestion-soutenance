@@ -1,0 +1,45 @@
+<div class="page-header">
+    <h1 class="page-title"><i class="bi bi-person-lines-fill me-2"></i>Liste des étudiants</h1>
+    <p class="page-subtitle">Gestion des étudiants du système</p>
+</div>
+
+<div class="table-container">
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th><i class="bi bi-card-text me-2"></i>Numéro du carte</th>
+                    <th><i class="bi bi-person me-2"></i>Nom</th>
+                    <th><i class="bi bi-person me-2"></i>Prénom</th>
+                    <th><i class="bi bi-building me-2"></i>Classe</th>
+                    <th colspan="3" class="text-center"><i class="bi bi-gear me-2"></i>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($etudiants as $etudiant) { ?>
+                    <tr>
+                        <td><strong><?php echo $etudiant['NCE']; ?></strong></td>
+                        <td><?php echo $etudiant['nom']; ?></td>
+                        <td><?php echo $etudiant['prenom']; ?></td>
+                        <td><span class="badge bg-primary"><?php echo $etudiant['classe']; ?></span></td>
+                        <td class="text-center">
+                           <a href="details_etudiant.php?NCE=<?= $etudiant['NCE'] ?>" class="btn btn-outline-info btn-sm">
+                                <i class="bi bi-eye"></i> Détails
+                             </a>
+                        </td>
+                        <td class="text-center">
+                            <a class="btn btn-outline-warning btn-sm" href="modifier_etudiant.php?NCE=<?php echo $etudiant['NCE']; ?>">
+                                <i class="bi bi-pencil-square me-1"></i> Modifier
+                            </a>
+                        </td>
+                        <td class="text-center">
+                            <a class="btn btn-outline-danger btn-sm" href="supprimer_etudiant.php?NCE=<?php echo $etudiant['NCE']; ?>">
+                                <i class="bi bi-person-x me-1"></i> Supprimer
+                            </a>
+                        </td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+
+    <div class="logout-wrapper">
+        <div class="logout-container">
+            <div class="logout-icon">
+                <i class="bi bi-door-closed"></i>
+            </div>
+            
+            <h1 class="logout-title">Déconnexion</h1>
+            <p class="logout-message">
+                Êtes-vous sûr de vouloir vous déconnecter ?<br>
+                Vous devrez vous reconnecter pour accéder à nouveau au système.
+            </p>
+
+            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+                <button type="submit" class='btn-logout'>
+                    <i class="bi bi-door-closed"></i> Se déconnecter
+                </button>
+            </form>
+            
+            <a href="javascript:history.back()" class="cancel-link">
+                <i class="bi bi-arrow-left"></i> Retour
+            </a>
+        </div>
+    </div>
+
+
+  

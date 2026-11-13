@@ -1,0 +1,38 @@
+<div class="container mt-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>Détails de l'Étudiant <?= $etudiant['nom'] . ' ' . $etudiant['prenom'] ?></h1>
+            <a href="liste_etudiants.php" class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-left"></i> Retour à la liste
+            </a>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="card-title mb-0">
+                            <i class="bi bi-person-badge"></i> Informations personnelles
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-borderless">
+                            <tr>
+                                <th width="30%">NCE:</th>
+                                <td><?= $etudiant['NCE'] ?></td>
+                            </tr>
+                            <tr>
+                                <th>Nom:</th>
+                                <td><?=$etudiant['nom'] ?></td>
+                            </tr>
+                            <tr>
+                                <th>Prénom:</th>
+                                <td><?= $etudiant['prenom'] ?></td>
+                            </tr>
+                            <tr>
+                                <th>Classe:</th>
+                                <td><?= $etudiant['classe'] ?></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>

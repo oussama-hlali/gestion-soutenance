@@ -1,0 +1,75 @@
+<div class="page-header">
+    <h1 class="page-title">Ajouter une soutenance</h1>
+    <p class="page-subtitle">Planifier une nouvelle soutenance</p>
+</div>
+
+<?php if (isset($_POST['Numjury'])): ?>
+    <?php if ($success): ?>
+        <div class='alert alert-success'><i class="bi bi-check2-circle me-2"></i>Soutenance ajoutée avec succès</div>
+    <?php else: ?>
+        <div class='alert alert-danger'><i class="bi bi-x-circle me-2"></i>Echec d'ajout de la soutenance</div>
+    <?php endif ?>
+<?php endif ?>
+
+<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+    <div class="form-grid">
+        <div>
+            <label class="form-label" for="Numjury">
+                <i class="bi bi-hash me-2"></i>Numéro du jury
+            </label>
+            <input class="form-control" type="number" name="Numjury" id="Numjury" 
+                   placeholder="Entrez le numéro du jury" required>
+        </div>
+        
+        <div>
+            <label class="form-label" for="date_soutenance">
+                <i class="bi bi-calendar-date me-2"></i>Date de soutenance
+            </label>
+            <input class="form-control" type="date" name="date_soutenance" id="date_soutenance" required>
+        </div>
+        
+        <div>
+            <label class="form-label" for="note">
+                <i class="bi bi-star me-2"></i>Note
+            </label>
+            <input class="form-control" type="number" name="note" id="note" 
+                   placeholder="Entrez la note" step="0.01" min="0" max="20" required>
+        </div>
+        
+        <div>
+            
+        </div>
+        
+        <div>
+            <label class="form-label" for="etudiant">
+                <i class="bi bi-person me-2"></i>Étudiant
+            </label>
+            <select class="form-select" name="etudiant" id="etudiant" required>
+                <option value="">Sélectionnez un étudiant</option>
+                <?php foreach ($etudiants as $etudiant) : ?>
+                    <option value="<?php echo $etudiant['NCE']; ?>">
+                        <?php echo $etudiant['nom']; ?> (NCE: <?php echo $etudiant['NCE']; ?>)
+                    </option>
+                <?php endforeach ?>
+            </select>
+        </div>
+        
+        <div>
+            <label class="form-label" for="enseignant">
+                <i class="bi bi-person-badge me-2"></i>Enseignant
+            </label>
+            <select class="form-select" name="enseignant" id="enseignant" required>
+                <option value="">Sélectionnez un enseignant</option>
+                <?php foreach ($enseignants as $enseignant) : ?>
+                    <option value="<?php echo $enseignant['Matricule']; ?>">
+                        <?php echo $enseignant['nom_Ens']; ?> (Mat: <?php echo $enseignant['Matricule']; ?>)
+                    </option>
+                <?php endforeach ?>
+            </select>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">
+        <i class="bi bi-file-earmark-plus me-2"></i> Créer la soutenance
+    </button>
+</form>

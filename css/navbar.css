@@ -1,0 +1,107 @@
+@import url("./main.css"); 
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"); 
+
+/* Navigation Styles */
+nav {
+    display: flex;
+    background: linear-gradient(135deg, var(--light-primary-color) 0%, var(--primary-color) 100%);
+    padding: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav .links-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+nav .links-container ul {
+    padding: 0;
+    display: flex;
+    gap: 10px;
+    margin: 0;
+    align-items: center;
+}
+
+nav .links-container ul li a {
+    text-transform: capitalize;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+    background: var(--primary-color);
+    border-radius: 5px;
+    color: var(--primary-text-color);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+}
+
+nav .links-container ul li a:hover {
+    background: var(--secondary-color);
+    color: #000;
+    transform: translateY(-2px);
+}
+
+nav .links-container ul li a i {
+    font-size: 1em;
+}
+
+/* Media Screen - Mobile Responsive */
+@media screen and (max-width: 768px) {
+    nav .links-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    nav .links-container ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+    }
+    
+    nav .links-container ul li a {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+    
+    /* Reduce gap between navigation groups */
+    .nav-group {
+        margin: 0 2px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    nav {
+        padding: 8px;
+    }
+    
+    nav .links-container ul {
+        gap: 3px;
+    }
+    
+    nav .links-container ul li a {
+        padding: 6px 8px;
+        font-size: 0.8rem;
+    }
+    
+    nav .links-container ul li a i {
+        font-size: 0.9em;
+    }
+}
+
+/* Tablet Styles */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    nav .links-container ul {
+        gap: 8px;
+    }
+    
+    nav .links-container ul li a {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+}

@@ -1,0 +1,78 @@
+<div class="page-header">
+    <h1 class="page-title">Rechercher une soutenance</h1>
+    <p class="page-subtitle">Trouver des soutenances par enseignant et date</p>
+</div>
+
+<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+    <div class="form-grid">
+        <div>
+            <label class="form-label" for="Matricule">
+                <i class="bi bi-person-badge me-2"></i>Enseignant
+            </label>
+            <select class="form-select" name="Matricule" id="Matricule" required>
+                <option value="">Sélectionnez un enseignant</option>
+                <?php foreach ($enseignants as $enseignant) { ?>
+                    <option value="<?php echo $enseignant['Matricule']; ?>">
+                        <?php echo $enseignant['nom_Ens']; ?> (Mat: <?php echo $enseignant['Matricule']; ?>)
+                    </option>
+                <?php } ?>
+            </select>
+        </div>
+        
+        <div>
+            <label class="form-label" for="date">
+                <i class="bi bi-calendar-date me-2"></i>Date de soutenance
+            </label>
+            <input class="form-control" type="date" name="date" id="date" value="2023-12-15" required>
+        </div>
+    </div>
+    
+    <button type="submit" class="btn btn-primary mt-3">
+        <i class="bi bi-search me-2"></i> Rechercher
+    </button>
+</form>
+
+<?php if ($_SERVER['REQUEST_METHOD'] === 'POST'): ?>
+    <div class="table-container">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th><i class="bi bi-hash me-2"></i>Numjury</th>
+                        <th><i class="bi bi-calendar me-2"></i>Date</th>
+                        <th><i class="bi bi-star me-2"></i>Note</th>
+                        <th><i class="bi bi-person me-2"></i>Étudiant (NCE)</th>
+                        <th><i class="bi bi-person-badge me-2"></i>Matricule Enseignant</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php if (count($soutenances) > 0): ?>
+                        <?php foreach ($soutenances as $soutenance) { ?>
+                            <tr>
+                                <td><strong><?php echo $soutenance['Numjury']; ?></strong></td>
+                                <td><?php echo $soutenance['date_soutenance']; ?></td>
+                                <td>
+                                    <span class="badge bg-<?php echo $soutenance['note'] >= 10 ? 'success' : 'danger'; ?>">
+                                        <?php echo $soutenance['note']; ?>/20
+                                    </span>
+                                </td>
+                                <td>
+                                    <?php echo htmlspecialchars($soutenance['etu_nom'] . ' ' . $soutenance['etu_prenom']); ?>
+                                    <br>
+                                    <small class="text-muted">NCE: <?php echo $soutenance['Nce']; ?></small>
+                                </td>
+                                <td><?php echo $soutenance['Matricule']; ?></td>
+                            </tr>
+                        <?php } ?>
+                    <?php else: ?>
+                        <tr>
+                            <td colspan="5" class="text-center text-muted py-4">
+                                <i class="bi bi-search me-2"></i>Aucune soutenance trouvée pour ces critères
+                            </td>
+                        </tr>
+                    <?php endif ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+<?php endif ?>

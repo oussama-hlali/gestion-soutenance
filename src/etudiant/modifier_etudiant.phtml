@@ -1,0 +1,48 @@
+<div class="page-header">
+    <h1 class="page-title">Modifier un étudiant</h1>
+    <p class="page-subtitle">Modifiez les informations de l'étudiant</p>
+</div>
+
+<?php if (isset($success)) : ?>
+    <?php if ($success) : ?>
+        <div class='alert alert-success'><i class="bi bi-check-circle-fill me-2"></i>Etudiant modifié avec succès</div>
+    <?php else : ?>
+        <div class='alert alert-danger'><i class="bi bi-exclamation-triangle-fill me-2"></i>Aucune modification n'a été apportée</div>
+    <?php endif ?>
+<?php endif ?>
+
+<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+    <div class="form-grid">
+        <div>
+            <label class='form-label' for="NCE">
+                <i class="bi bi-person-badge me-2"></i>NCE
+            </label>
+            <input class='form-control' type="text" name='NCE' value="<?php echo $etudiant['NCE']; ?>" readonly />
+        </div>
+        
+        <div>
+            <label class='form-label' for="nom">
+                <i class="bi bi-person me-2"></i>Nom
+            </label>
+            <input class='form-control' type="text" name='nom' value="<?php echo $etudiant['nom']; ?>" required />
+        </div>
+        
+        <div>
+            <label class='form-label' for="prenom">
+                <i class="bi bi-person me-2"></i>Prénom
+            </label>
+            <input class='form-control' type="text" name='prenom' value="<?php echo $etudiant['prenom']; ?>" required />
+        </div>
+        
+        <div>
+            <label class='form-label' for="classe">
+                <i class="bi bi-building me-2"></i>Classe
+            </label>
+            <input class='form-control' type="text" name='classe' value="<?php echo $etudiant['classe']; ?>" required />
+        </div>
+    </div>
+    
+    <button type="submit" class="btn btn-primary mt-3">
+        <i class="bi bi-floppy2-fill me-2"></i> Enregistrer les modifications
+    </button>
+</form>
